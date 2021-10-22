@@ -7,11 +7,30 @@ export interface EquiposFUT {
   foto: string ;
 }
 
-const ELEMENT_DATA: EquiposFUT[] = [ {name: "BARCA", country: 'Espana', foto: "https://gamingfrog.com/wp-content/uploads/2020/11/sbc_set_image_1000066-c0e6dcdf-15a9.png"},
-                                     {name: "BAYERN", country: 'Espana', foto: "https://gamingfrog.com/wp-content/uploads/2020/11/sbc_set_image_1000066-c0e6dcdf-15a9.png"},
-                                     {name: "MADRID", country: 'Espana', foto: "https://gamingfrog.com/wp-content/uploads/2020/11/sbc_set_image_1000066-c0e6dcdf-15a9.png"},
-                                     {name: "ATLETICO", country: 'Espana', foto: "https://gamingfrog.com/wp-content/uploads/2020/11/sbc_set_image_1000066-c0e6dcdf-15a9.png"}
-
+const ELEMENT_DATA: EquiposFUT[] = [/* {name: "BARCA", country: 'Espana', foto: "https://gamingfrog.com/wp-content/uploads/2020/11/sbc_set_image_1000066-c0e6dcdf-15a9.png"},
+                                      {name: "BAYERN", country: 'Espana', foto: "https://gamingfrog.com/wp-content/uploads/2020/11/sbc_set_image_1000066-c0e6dcdf-15a9.png"},
+                                      {name: "MADRID", country: 'Espana', foto: "https://gamingfrog.com/wp-content/uploads/2020/11/sbc_set_image_1000066-c0e6dcdf-15a9.png"},
+                                      {name: "ATLETICO", country: 'Espana', foto: "https://gamingfrog.com/wp-content/uploads/2020/11/sbc_set_image_1000066-c0e6dcdf-15a9.png"}*/
+  {//Tene en cuenta el tabulado y la jerarquía del código. Esto te va ayudar a encontrar más rápido las cosas :D
+    name: "BARCA", 
+    country: 'Espana', 
+    foto: "https://gamingfrog.com/wp-content/uploads/2020/11/sbc_set_image_1000066-c0e6dcdf-15a9.png"
+  },
+  {
+    name: "BAYERN", 
+    country: 'Espana', 
+    foto: "https://gamingfrog.com/wp-content/uploads/2020/11/sbc_set_image_1000066-c0e6dcdf-15a9.png"
+  },
+  {
+    name: "MADRID", 
+    country: 'Espana', 
+    foto: "https://gamingfrog.com/wp-content/uploads/2020/11/sbc_set_image_1000066-c0e6dcdf-15a9.png"
+  },
+  {
+    name: "ATLETICO", 
+    country: 'Espana', 
+    foto: "https://gamingfrog.com/wp-content/uploads/2020/11/sbc_set_image_1000066-c0e6dcdf-15a9.png"
+  }
 ];
 
 @Component({
@@ -20,19 +39,26 @@ const ELEMENT_DATA: EquiposFUT[] = [ {name: "BARCA", country: 'Espana', foto: "h
   styleUrls: ["./equipos.css"]
 })
 
-
-
 export class Equipos{
 
+    //Typescript es Javascript pero con tipado estático. Pero al final siempr es Javascript,
+    //así que si alguna vez ocupas un tipo cualquier usas: visibilidad varibale:any = valor ---> private hola:any = "CualquierCosa"
+    public url:string = "https://material.angular.io/assets/img/examples/shiba2.jpg"
+    public foto:string = ""
+    public foton:string = ""
+    public name:string = ""
+    public country:string = ""
+
+    //Trata de hacer las declaraciones antes del constructor :D
     constructor(private EquipoService:EquipoService){
 
     }
 
-  url = "https://material.angular.io/assets/img/examples/shiba2.jpg"
+  /* url = "https://material.angular.io/assets/img/examples/shiba2.jpg"
   foto = ""
   foton = ""
   name = ""
-  country =""
+  country ="" */
 
 
 
@@ -66,9 +92,13 @@ export class Equipos{
   listarEquipo(){
     this.EquipoService.getEquipos().subscribe(
       res=>{
+        console.log("res")
         console.log(res)
       },
-      err => console.log(err)
+      err => {
+        console.log("err")
+        console.log(err)
+      }
     );
   }
 

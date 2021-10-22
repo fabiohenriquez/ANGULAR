@@ -14,16 +14,32 @@ rutas.get('/',(req,res)=>{
 
 })
 
+rutas.get('/test', (req, res) => {
+  console.log("test 1")
+  res.status(200).json({
+    hey: "hola"
+  })
+})
 
 //un elemento
 
 rutas.get('/:id',(req,res)=>{
   const {id} = req.params
-  let sql = 'SELECT * from equipos where nombre_equipo = ?'
-  conexion.query(sql,[id],(err,rows,fields)=>{
+
+  let query = 
+    ' SELECT *' +
+    ' FROM equipos' +
+    ' WHERE nombre_equipo = ?'
+  ;
+
+  let values = [
+    id
+  ]
+
+  conexion.query(query,values, (err, results, fields) =>{
     if(err) throw err;
     else{
-      res.json(rows)
+      res.json(results)
     }
   })
 

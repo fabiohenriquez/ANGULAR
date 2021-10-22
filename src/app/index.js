@@ -2,10 +2,12 @@ require("./app.js");
 
 const express = require('express' );
 const port =(process.env.port || 3000 );
+const cors = require('cors');
 
 
 //llamar express
 const app = express();
+//app.use(cors());
 
 //tipos de datos
 app.use(express.json())
