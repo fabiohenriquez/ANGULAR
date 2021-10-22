@@ -1,0 +1,20 @@
+.Tarjetas{
+  padding: 16px;
+}
+
+.mat-card{
+  height: 400px;
+  width: 280px;
+  min-height: 400px;
+  min-width: 280px;
+}
+
+.formulario {
+  min-width: 150px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.formularioAncho {
+  width: 70%;
+}
