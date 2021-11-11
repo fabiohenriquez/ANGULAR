@@ -7,7 +7,7 @@ var conexion = mysql.createConnection({
   password: 'impactmobilefabiohenriquez'
 
 });
-/* little change 2*/
+
 
 conexion.connect(function(error){
   if(error){
